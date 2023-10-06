@@ -110,7 +110,6 @@ class AppContent(QWidget):
 
     def toggleSettings(self):
         self.isSettingsOpen = not self.isSettingsOpen
-        print("toggle settings", self.isSettingsOpen)
         self.titlebar_settings.setShortcut('Esc' if self.isSettingsOpen else 'Ctrl+,')
         self.titlebar_settings.setIcon(QIcon("icons/close.png") if self.isSettingsOpen else QIcon("icons/setting.png"))
 
@@ -132,8 +131,6 @@ class AppContent(QWidget):
         with open('config.ini', 'w') as configfile:
             self.config.write(configfile)
         self.parent.setFixedSize(int(400 * self.configUiZoom), int(500 * self.configUiZoom))
-
-        print(self.configUiZoom)
 
     def saveSettings(self, worktime, breaktime):
         # Errorhandling
